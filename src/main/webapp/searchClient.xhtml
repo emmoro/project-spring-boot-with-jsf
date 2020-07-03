@@ -1,0 +1,194 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:dx="http://dextra.com.br/dextra-taglib">
+
+	<ui:decorate template="template.xhtml">
+		<ui:define name="conteudo">
+	
+			<div class="pageTitleContainer">
+				<ui:insert name="pageIcon" />
+				<span class="pageTitleLabel"> <ui:insert name="pageTitle" />
+				</span>
+				<ui:insert name="ruler">
+					<!--   <hr class="pageTitleRuler" />  -->
+				</ui:insert>
+	
+				<h:form id="form2">
+					<br />
+					<br />
+					<br />
+	
+					<p:panel id="panel" header="#{msg['title_search_client']}" styleClass="ocupada"
+						style="text-align:center ;color: #000; font-size: 16px; font-family: sans-serif; ">
+	
+						<p:panel id="panel2" header="#{msg['filter']}" styleClass="ocupada2"
+							style="text-align:center ;color: #000; 
+					 		 font-size: 15px; background-color:#64d0f7; font-family: sans-serif;">
+					 		 
+							<p:messages id="messages" />
+							
+							<h:panelGrid columns="2" cellpadding="2"
+								style=" border-spacing:4px; border-collapse:separate;">
+								<h:outputLabel for="name" value="#{msg['name']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<p:inputText id="name" size="25"
+									value="#{clientBean.clientFilter.name}"
+									style=" font-size: 14px; font-family: sans-serif; padding:5px; " />
+	
+								<p:outputLabel for="identification" value="#{msg['identification']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<p:inputText id="identification" size="25"
+									value="#{clientBean.clientFilter.identification}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+								<p:outputLabel for="phone" value="#{msg['phone']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<p:inputText id="phone" size="25"
+									value="#{clientBean.clientFilter.phone}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+							</h:panelGrid>
+						</p:panel>
+						<br />
+						
+					   	<h:commandButton value="#{msg['btn_search']}"
+							style=" width:130px " alt="#{msg['btn_search']}"
+							action="#{clientBean.findClient}" />
+
+						<br />
+						<br />
+	
+						<p:dataTable id="cli" var="client" value="#{clientBean.listClient}"
+							emptyMessage="#{msg['nothing_found']}" styleClass="tabela"
+							headerClass="cabecalho"
+							onRowMouseOver="this.style.backgroundColor='#F1F1F1'"
+							paginatorPosition="bottom"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+							paginator="true" rows="10" rowKey="#{aluno.id}"
+							style="text-align:center ;color: #5459c9; font-size: 14px;background-color:#B0E0E6; font-family: sans-serif;">
+	
+							<f:facet name="header">
+	                 			#{msg['result']}
+	              		    </f:facet>
+	
+							<p:column headerText="#{msg['name']}" sortBy="#{client.name}"
+								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+								filterStyle="max-width: 90px; min-width: 200px;">
+								<f:facet name="header">
+									<h:outputText value="#{msg['name']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</f:facet>
+								<h:outputText value="#{client.name}"
+									style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+							</p:column>
+	
+							<p:column headerText="#{msg['identification']}" sortBy="#{client.identification}"
+								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+								filterStyle="max-width: 90px; min-width: 200px;">
+								<f:facet name="header">
+									<h:outputText value="#{msg['identification']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</f:facet>
+								<h:outputText value="#{client.identification}"
+									style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+							</p:column>
+	
+							<p:column headerText="#{msg['phone']}" sortBy="#{client.phone}"
+								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+								filterStyle="max-width: 90px; min-width: 200px;">
+								<f:facet name="header">
+									<h:outputText value="#{msg['phone']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</f:facet>
+								<h:outputText value="#{client.phone}"
+									style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+							</p:column>
+
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="#{msg['status']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</f:facet>
+	
+	
+								<p:row rendered="#{client.status == 0}">
+									<h:outputText value="#{msg['active']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</p:row>
+								<p:row rendered="#{client.status == 1}">
+									<h:outputText value="#{msg['canceled']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</p:row>
+	
+							</p:column>
+	
+							<p:column
+								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+								filterStyle="max-width: 60px; min-width: 60px;">
+								<f:facet name="header">
+									<h:outputText value="#{msg['view']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</f:facet>
+	
+								<h:commandButton ajax="false" label="#{msg['view']}"
+									action="#{clientBean.view}" image="ui-icon-search"
+									style="width: 22px; height: 22px; align:center ;color: #000; font-size: 14px;"
+									styleClass="tabBotao">
+									<f:setPropertyActionListener value="#{client}"
+										target="#{clientBean.clientSelected}" />
+								</h:commandButton>
+							</p:column>
+	
+							<p:column
+								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+								filterStyle="max-width: 60px; min-width: 60px;">
+								<f:facet name="header">
+									<h:outputText value="#{msg['change']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</f:facet>
+	
+								<p:commandButton ajax="false" label="#{msg['change']}"
+									action="#{clientBean.change}" image="ui-icon-pencil"
+									style="width: 22px; height: 22px; align:center ;color: #000; font-size: 14px;"
+									styleClass="tabBotao">
+									<f:setPropertyActionListener value="#{client}"
+										target="#{clientBean.clientSelected}" />
+								</p:commandButton>
+	
+							</p:column>
+	
+							<p:column
+								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+								filterStyle="max-width: 60px; min-width: 60px;">
+								<f:facet name="header">
+									<h:outputText value="#{msg['cancel']}"
+										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+								</f:facet>
+	
+								<p:commandButton ajax="false" label="#{msg['cancel']}"
+									action="#{clientBean.viewCancel}"
+									actionListener="#{clientBean.viewCancel}"
+									image="ui-icon-closethick"
+									style="width: 22px; height: 22px; align:center ;color: #000; font-size: 14px;"
+									styleClass="tabBotao">
+									<f:setPropertyActionListener value="#{client}"
+										target="#{clientBean.clientSelected}" />
+								</p:commandButton>
+
+							</p:column>
+	
+						</p:dataTable>
+	
+						<br />
+					</p:panel>
+				</h:form>
+	
+			</div>
+		</ui:define>
+	</ui:decorate>
+
+</html>

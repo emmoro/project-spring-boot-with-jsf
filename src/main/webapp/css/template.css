@@ -1,0 +1,374 @@
+
+BODY {
+	    background-color: #FFF;
+	     font-size: 12px;
+		 font-family: sans-serif;
+	 }
+	 
+.conteudo {
+			width: 780px;
+			border: 1px solid #666666;
+			background-color: #FFFFFF;
+			margin: 0 auto;
+			margin-left: -390px;
+			top: 50px;
+			left: 50%;
+			z-index: 2;
+			height: 100%;
+			position: absolute;
+		 }
+
+
+.header {
+			position: absolute; 
+			top: 0; 
+			left: 0; 
+			width: 100%; 
+			height: 100px; 
+			background: url(../image/banner.jpg) repeat-x;
+			background-color: #cff;
+		}
+
+
+.direita {
+			background: url(fundoDireita.gif) repeat-x right top;
+			width: 5%;
+			position: absolute;
+			left: 1px;
+			top: 0;
+			height: 165px;
+			z-index: 1;
+			top: 50px;
+        }
+
+
+.conteudoLogin {
+		
+			    position: absolute;
+		
+			  }
+			  
+.pageDiv {
+ /* background:url("../image/pageBkg.png") repeat-x;  */
+  font-family:Verdana;
+  height:100%;
+  width:100%;
+  background-color: #FFF;
+}
+			  
+/* ------------------------------------------  */
+
+
+#nav,#nav ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#nav {
+    font-family: "Lucida Sans Unicode",Verdana,Arial,sans-serif;
+    font-size: 14px;
+    height: 36px;
+    list-style: none outside none;
+   /* margin: 40px auto; Deixa colado no Banner */
+    text-shadow: 0 -1px 3px #202020;
+   /* width: 1000px;*/
+
+    /* border radius */
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    /* box shadow */
+    -moz-box-shadow: 0px 3px 3px #cecece;
+    -webkit-box-shadow: 0px 3px 3px #cecece;
+    box-shadow: 0 3px 4px #8b8b8b;
+
+    /* gradient */
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
+    background-image: -moz-linear-gradient(center bottom, #2F4F4F 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
+    background-color: #5f5f5f;
+}
+#nav li {
+    border-bottom: 1px solid #575757;
+    border-left: 1px solid #929292;
+    border-right: 1px solid #5d5d5d;
+    border-top: 1px solid #797979;
+    display: block;
+    float: left;
+    height: 34px;
+    position: relative;
+    width: 105px;
+}
+#nav > li:first-child {
+    border-left: 0 none;
+    margin-left: 5px;
+}
+#nav ul {
+    left: -9999px;
+    position: absolute;
+    top: -9999px;
+    z-index: 2;
+}
+#nav ul li {
+    background: none repeat scroll 0 0 #838383;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+#nav li a {
+    color: #FFFFFF;
+    display: block;
+    line-height: 34px;
+    outline: medium none;
+    text-align: center;
+    text-decoration: none;
+
+    /* gradient */
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
+    background-image: -moz-linear-gradient(center bottom, #787878 0%, #5E5E5E 50%, #707070 51%, #838383 100%);
+    background-color: #5f5f5f;
+}
+
+/* keyframes #animation */
+@-webkit-keyframes animation {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    30% {
+        -webkit-transform: scale(1.2);
+    }
+    100% {
+        -webkit-transform: scale(1.1);
+    }
+}
+@-moz-keyframes animation {
+    0% {
+        -moz-transform: scale(1);
+    }
+    30% {
+        -moz-transform: scale(1.2);
+    }
+    100% {
+        -moz-transform: scale(1.1);
+    }
+}
+#nav li > a:hover {
+    /* CSS3 animation */
+    -webkit-animation-name: animation;
+    -webkit-animation-duration: 0.2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-delay: 0;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: animation;
+    -moz-animation-duration: 0.3s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+    -moz-animation-delay: 0;
+    -moz-animation-play-state: running;
+    -moz-animation-fill-mode: forwards;
+	    color: #000;
+
+}
+#nav li:hover ul {
+    left: 0;
+    top: 34px;
+    width: 150px;
+	    color: #FFFFFF;
+
+}
+
+.ocupada .ui-panel-titlebar {
+    background: #1E90FF;
+}
+
+.ui-datatable .ui-datatable-header {
+   background: #C2D8E5;
+   color: #000;
+   font-size: 14px; 
+   font-family: sans-serif;
+}
+
+.ui-paginator {
+ background: #C2D8E5;
+ color: #000
+}
+
+
+.cabecalho {
+
+   text-align: center;
+
+   font: 11px Arial, sans-serif;
+
+   font-weight: bold;
+
+   color: #000;
+
+   background:  #000;
+
+}
+
+.tabela {
+
+     
+
+}
+
+.pageTitleContainer {
+	margin-left: 50px;
+	margin-right: 50px;
+	/*padding-top: -10px; */
+	top: -30px;
+	position: relative;
+}
+
+.pageTitleLabel {
+	font-size: 28px;
+	font-variant: small-caps; 			
+	margin-left:10px;
+	color: #000;			
+}
+	
+.pageTitleRuler {
+	width: 100%;	
+	border: 1px solid #000;
+}
+
+.endRuler {
+	width: 100%;	
+	border: 1px solid #000;
+}
+
+/*#rodape2{
+ left:0;
+
+ width:776px;
+ position: absolute;
+ background:  #000;
+}*/
+
+#footer { 
+position:fixed;
+ height: 25px; 
+ width:100%; 
+
+  background:  #000;
+ }
+ 
+.ocupada .ui-panel-titlebar {  /*styleClass="ocupada" = Cor dentro do panel */
+    background: #c2d8e5;
+	 color: #000;
+   font-family: sans-serif;
+   font-size: 16px;
+}
+
+.ocupada2 .ui-tabView-titlebar {  /*styleClass="ocupada" = Cor dentro do panel */
+    background: #c2d8e5;
+	 color: #000;
+   font-family: sans-serif;
+   font-size: 14px;
+}
+
+.ocupada4  {  /*styleClass="ocupada" = Cor dentro do panel */
+   text-align:center;
+   font-family: sans-serif;
+   font-size: 14px;
+   width: 240px;
+}
+
+.ui-dialog { position: fixed; padding: 0; overflow: hidden;}  
+.ui-dialog .ui-dialog-titlebar { padding: .4em .4em .4em 1em; position: relative; border:0px; }  
+.ui-dialog .ui-dialog-title { float: center; margin: .3em 16px .1em 0; }   
+.ui-dialog .ui-dialog-content {position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }  
+/* Alter do Cancelar Sim ou não, e não sei mais onde, descobrir!!! */
+.ui-dialog .ui-dialog-buttonpane { text-align: center; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }  
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }  
+.ui-dialog .ui-dialog-buttonpane button { margin: .5em .4em .5em 0; cursor: pointer; }  
+.ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }  
+.ui-draggable .ui-dialog-titlebar { cursor: move; }  
+.ui-dialog .ui-dialog-titlebar-close, .ui-dialog .ui-dialog-titlebar-minimize,.ui-dialog .ui-dialog-titlebar-maximize { position: relative;  float: right; margin: 0px; top:0px; padding: 1px; }  
+.ui-dialog .ui-dialog-titlebar-close span, .ui-dialog .ui-dialog-titlebar-minimize span, .ui-dialog .ui-dialog-titlebar-maximize span { display: block; margin: 1px; }  
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus, .ui-dialog .ui-dialog-titlebar-minimize:hover, .ui-dialog .ui-dialog-titlebar-minimize:focus, .ui-dialog .ui-dialog-titlebar-maximize:hover, .ui-dialog .ui-dialog-titlebar-maximize:focus   { padding: 0; }  
+.ui-dialog-footer {padding: .4em 1em; border-width: 1px 0 0 0;text-align:left;}  
+.ui-dialog-docking-zone {position: fixed;bottom: 0;left: 0;}  
+.ui-dialog-minimizing {border: 2px dotted gray;}  
+.ui-confirm-dialog-severity {float: left; margin: 3px 7px 20px 0;} 
+
+.ui-panel .ui-widget .ui-widget-content .ui-corner-all {
+
+}
+
+.ui-panel-content .ui-widget-content {
+ float: center;
+ text-align:center;
+}
+
+.ui-widget-content {
+    float: center;
+	text-align:center;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 50px;
+}
+
+.form-signin-heading{
+ text-align: center;
+ font-size: 27px; 
+ font-family: sans-serif;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.imgHome {
+display:block;
+  padding:7px 8px;
+  position:relative;
+  }
+  
+.loginUsuario p{
+display:block;
+  padding:7px 1px;
+  top: 18px;
+  position:relative;
+  color: #F5F5F5;
+  font-size: 16px; 
+ font-family: sans-serif;
+  }
+  
+.ui-button-text-only .ui-button-text {
+  padding:0.1em 1em;
+}
+

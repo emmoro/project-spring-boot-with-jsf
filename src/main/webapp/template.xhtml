@@ -1,0 +1,153 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>#{msg['title_system']}</title>
+	
+		<script src="js/js.js"></script>
+		<link href="css/template.css" type="text/css" rel="stylesheet" />
+		<link
+			href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+			rel="stylesheet" />
+	
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<!-- Bootstrap theme -->
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+	
+		<!-- Custom styles for this template -->
+		<link href="css/theme.css" rel="stylesheet" />
+	
+		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+		<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+		<script src="js/ie-emulation-modes-warning.js"></script>
+	
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	
+		<!--   <script src="js/jquery.min.js"></script>  -->
+		<script src="js/bootstrap.min.js"></script>
+	
+		<script src="js/docs.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="js/ie10-viewport-bug-workaround.js"></script>
+	
+	</h:head>
+	
+	<h:body>
+	
+		<h:form id="form">
+	
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			
+				<tr>
+					<td colspan="2" align="center">
+						<ui:insert name="header">
+							<div class="navbar navbar-inverse navbar-fixed-top"
+								role="navigation">
+								<div class="container">
+									<div class="navbar-header">
+										<button type="button" class="navbar-toggle collapsed"
+											data-toggle="collapse" data-target=".navbar-collapse">
+											<span class="sr-only">Toggle navigation</span> <span
+												class="icon-bar"></span> <span class="icon-bar"></span> <span
+												class="icon-bar"></span>
+										</button>
+	
+										<a class="navbar-brand"> <img
+											src="WEB-INF/image/imagem1.jpg" width="160px" height="35px"
+											onmouseover="this.src='image/imagem2.jpg'"
+											onmouseout="this.src='image/imagem1.jpg'" />
+										</a>
+									</div>
+	
+									<div class="navbar-collapse collapse">
+										<ul class="nav navbar-nav">
+											<li><a href="home.xhtml">
+												<i class="fa fa-home"></i>#{msg['menu_home']}</a>
+											</li>
+	
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle"
+													data-toggle="dropdown"> <i class="fa fa-user"></i>
+													#{msg['menu_register']} <span class="caret">
+													</span>
+												</a>
+												<ul class="dropdown-menu" role="menu">
+													<li><a href="clientRegister.xhtml"><i
+															class="fa fa-pencil-square-o"></i> #{msg['menu_client_register']}</a></li>
+													<li><a href="employeeRegister.xhtml"><i
+															class="fa fa-pencil-square-o"></i> #{msg['menu_employee_register']}</a></li>
+													<li><a href="reminderRegister.xhtml"><i
+															class="fa fa-pencil-square-o"></i> #{msg['menu_reminder_register']}</a></li>
+												</ul>
+											</li>
+											
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle"
+													data-toggle="dropdown"> <i class="fa fa-user"></i>
+														#{msg['menu_search']} <span class="caret"></span>
+												</a>
+												<ul class="dropdown-menu" role="menu">
+													<li><a href="searchClient.xhtml"><i
+															class="fa fa-users"></i> #{msg['menu_search_client']}</a></li>
+													<li><a href="searchEmployee.xhtml"><i
+															class="fa fa-users"></i> #{msg['menu_search_employee']}</a></li>
+												</ul>
+											</li>
+	
+											<li class="dropdown">
+												<a href="#" class="dropdown-toggle"
+													data-toggle="dropdown"> <i class="fa fa-line-chart"></i>
+														#{msg['menu_graphics']} <span class="caret"></span>
+												</a>
+												<ul class="dropdown-menu" role="menu">
+													<li><a href="viewReport.xhtml"><i
+															class="fa fa-file-excel-o"></i> #{msg['menu_graphics_cli_empl']}</a></li>
+												</ul>
+											</li>
+										</ul>
+	
+										<ul class="nav navbar-nav navbar-right">
+											<li>
+												<h:commandButton value="#{msg['menu_logoff']}"
+															style=" width:130px " alt="#{msg['menu_logoff']}"
+															action="#{homeBean.logout}" />
+											</li>
+										</ul>
+									</div>
+									<!--/.nav-collapse -->
+								</div>
+							</div>
+						</ui:insert>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><br /><br />
+						<div class="pageDiv">
+							<ui:insert name="conteudo">
+							</ui:insert>
+						</div></td>
+				</tr>
+	
+				<tr>
+					<td>
+						<ui:insert name="footer">
+							<div id="footer">@Elton Moro</div>
+						</ui:insert>
+					</td>
+				</tr>
+			</table>
+	
+		</h:form>
+	
+	</h:body>
+</html>

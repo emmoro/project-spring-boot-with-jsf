@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:dx="http://dextra.com.br/dextra-taglib">
+
+	<ui:decorate template="template.xhtml">
+		<ui:define name="conteudo">
+	
+			<div class="pageTitleContainer">
+				<ui:insert name="pageIcon" />
+				<span class="pageTitleLabel"> <ui:insert name="pageTitle" />
+				</span>
+				<ui:insert name="ruler">
+					<!--   <hr class="pageTitleRuler" />  -->
+				</ui:insert>
+	
+				<h:form id="cadastro">
+	
+					<br />
+					<br />
+					<br />
+	
+					<p:panel id="panel" header="#{msg['title_reminder_register']}"
+						styleClass="ocupada"
+						style="text-align:center ;color: #5459c9; font-size: 16px; ">
+	
+						<!--  <p:growl id="msgs" showDetail="true" /> -->
+						<p:messages id="msgs" showDetail="true" autoUpdate="true" />
+	
+						<p:tabView id="tab" styleClass="ocupada2"
+							style="text-align:center ;color: #5459c9; font-size: 14px;background-color:#99ccff;">
+							<p:tab title="#{msg['title_reminder']}"
+								style="text-align:center ;color: #5459c9; font-size: 1px; font-family: sans-serif;">
+	
+								<h:panelGrid columns="3" cellpadding="2"
+									style=" border-spacing:4px; border-collapse:separate;">
+	
+									<h:outputLabel for="title" value="#{msg['title']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputText id="title" value="#{reminderBean.reminder.title}"
+										label="title" size="15"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputText>
+									<p:message for="title" display="icon" />
+	
+									<h:outputLabel for="description" value="#{msg['description']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputTextarea id="description"
+										value="#{reminderBean.reminder.description}" label="description"
+										size="15" style=" font-size: 14px; font-family: sans-serif;"
+										rows="6" cols="33">
+									</p:inputTextarea>
+									<p:message for="description" display="icon" />
+	
+								</h:panelGrid>
+							</p:tab>
+						</p:tabView>
+	
+						<br />
+						
+						<h:commandButton value="#{msg['btn_save']}"
+							style=" width:130px " alt="#{msg['btn_save']}"
+							action="#{reminderBean.saveReminder}" />
+
+						<p:spacer width="10" height="11" />
+						
+						<h:commandButton value="#{msg['btn_clean']}"
+							style=" width:130px " alt="#{msg['btn_clean']}"
+							action="#{reminderBean.clean}" />
+	
+					</p:panel>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:decorate>
+
+</html>

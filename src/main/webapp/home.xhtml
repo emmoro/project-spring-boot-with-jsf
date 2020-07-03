@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:dx="http://dextra.com.br/dextra-taglib"
+	xmlns:th="http://www.thymeleaf.org">
+
+	<ui:decorate template="template.xhtml">
+		<ui:define name="conteudo">
+			<div class="pageTitleContainer">
+				<ui:insert name="pageIcon" />
+				<span class="pageTitleLabel"> <ui:insert name="pageTitle" />
+				</span>
+				<ui:insert name="ruler">
+					<!--   <hr class="pageTitleRuler" />  -->
+				</ui:insert>
+
+				<f:event listener="#{homeBean.initReminder}" type="preRenderView" />
+
+				<h:form id="cadastro">
+
+					<br />
+					<br />
+					<br />
+
+					<!--  <p:growl id="msgs" showDetail="true" /> -->
+					<p:messages id="msgs" showDetail="true" autoUpdate="true" />
+
+					<p:accordionPanel id="paneAco" multiple="true">
+
+						<p:tab id="tab2" title="#{msg['title_reminder']}">
+
+							<h:panelGrid columns="1" cellpadding="2" width="100%"
+								style=" border-spacing:4px; border-collapse:separate; text-align:center; display:block;">
+								<i class="fa fa-bell-o"></i>
+
+								<p:dataTable id="remind" var="reminder"
+									value="#{homeBean.reminders}">
+
+									<p:column headerText="#{msg['home_title_reminder']}"
+										style=" font-size: 14px; font-family: sans-serif;">
+										<h:outputText value="#{reminder.title}"
+											style=" font-size: 14px; font-family: sans-serif;" />
+									</p:column>
+
+									<p:column headerText="#{msg['home_view_reminder']}"
+										style="text-align:center ; font-size: 14px; font-family: sans-serif;"
+										filterStyle="max-width: 60px; min-width: 60px;">
+										
+										<p:commandButton ajax="false" label="#{msg['home_view_reminder']}"
+											action="#{homeBean.viewReminder}" image="ui-icon-search"
+											style="width: 22px; height: 22px; align:center ;color: #000; font-size: 14px;"
+											styleClass="tabBotao">
+
+									</p:commandButton>
+										
+										
+									</p:column>
+
+								</p:dataTable>
+
+							</h:panelGrid>
+
+						</p:tab>
+
+					</p:accordionPanel>
+
+				</h:form>
+
+			</div>
+		</ui:define>
+	</ui:decorate>
+
+</html>

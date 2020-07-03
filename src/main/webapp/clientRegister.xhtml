@@ -1,0 +1,165 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:dx="http://dextra.com.br/dextra-taglib">
+
+	<ui:decorate template="template.xhtml">
+		<ui:define name="conteudo">
+	
+			<div class="pageTitleContainer">
+				<ui:insert name="pageIcon" />
+				<span class="pageTitleLabel"> <ui:insert name="pageTitle" />
+				</span>
+				<ui:insert name="ruler">
+					<!--   <hr class="pageTitleRuler" />  -->
+				</ui:insert>
+	
+				<h:form id="cadastro">
+	
+					<br />
+					<br />
+					<br />
+	
+					<p:panel id="panel" header="#{msg['title_client_register']}" styleClass="ocupada"
+						style="text-align:center ;color: #5459c9; font-size: 16px; ">
+	
+						<!--  <p:growl id="msgs" showDetail="true" /> -->
+						<p:messages id="msgs" showDetail="true" autoUpdate="true" />
+	
+						<p:tabView id="tabView" styleClass="ocupada2"
+							style="text-align:center ;color: #5459c9; font-size: 14px;background-color:#99ccff;">
+							<p:tab title="#{msg['title_client']}"
+								style="text-align:center ;color: #5459c9; font-size: 1px; font-family: sans-serif;">
+								
+								<h:panelGrid columns="3" cellpadding="2" width="850"
+									style=" border-spacing:4px; border-collapse:separate;">	
+	
+									<h:outputLabel for="name" value="#{msg['name']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputText id="name" value="#{clientBean.client.name}"
+										required="false" size="75" label="Name"
+										style="font-size: 14px;">
+									</p:inputText>
+									<p:message for="name" display="icon" />
+	
+									<h:outputLabel for="dateBirth" value="#{msg['date_of_birth']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputMask mask="99/99/9999" id="dateBirth"
+										value="#{clientBean.formattedDate}" required="false"
+										label="dateBirth" size="15"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputMask>
+									<p:message for="dateBirth" display="icon" />
+	
+									<h:outputLabel for="identification" value="#{msg['identification']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputMask mask="999.999.999-99" id="identification"
+										value="#{clientBean.client.identification}" required="false"
+										label="identification" size="20"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputMask>
+									<p:message for="identification" display="icon" />
+	
+									<h:outputLabel for="state" value="#{msg['state']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+										<p:inputText id="state" value="#{clientBean.client.state}"
+										required="false" size="75" label="state"
+										style="font-size: 14px;">
+									</p:inputText>
+									<p:message for="state" display="icon" />
+	
+									<h:outputLabel for="city" value="#{msg['city']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputText id="city" value="#{clientBean.client.city}"
+										required="false" size="40" label="city"
+										style=" font-size: 14px; font-family: sans-serif; ">
+									</p:inputText>
+									<p:message for="city" display="icon" />
+	
+									<h:outputLabel for="address" value="#{msg['address']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputText id="address" value="#{clientBean.client.address}"
+										required="false" label="Endereco" size="40"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputText>
+									<p:message for="address" display="icon" />
+	
+									<h:outputLabel for="number" value="#{msg['number']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputText id="number" value="#{clientBean.client.number}"
+										required="false" label="Numero" size="10"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputText>
+									<p:message for="number" display="icon" />
+	
+									<h:outputLabel for="codeState" value="#{msg['codeState']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputMask mask="99999-999" id="codeState"
+										value="#{clientBean.client.codeState}" required="false"
+										label="codeState" size="10"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputMask>
+									<p:message for="codeState" display="icon" />
+	
+									<h:outputLabel for="sex" value="#{msg['sex']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<h:selectOneMenu id="sex" value="#{clientBean.client.sex}"
+										style=" font-size: 14px; font-family: sans-serif;">
+										<f:selectItem itemLabel="#{msg['select']}" itemValue="" />
+										<f:selectItem itemLabel="#{msg['male']}" itemValue="M" />
+										<f:selectItem itemLabel="#{msg['female']}" itemValue="F" />
+									</h:selectOneMenu>
+									<p:message for="sex" display="icon" />
+	
+									<h:outputLabel for="phone" value="#{msg['phone']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputMask mask="(99) 9999-9999" id="phone"
+										value="#{clientBean.client.phone}" required="false"
+										label="Telefone" size="16"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputMask>
+									<p:message for="phone" display="icon" />
+	
+									<h:outputLabel for="cellphone" value="#{msg['cellphone']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputMask mask="(99) 99999-9999" id="cellphone"
+										value="#{clientBean.client.cellphone}" required="false"
+										label="Celular" size="16"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputMask>
+									<p:message for="cellphone" display="icon" />
+	
+									<h:outputLabel for="email" value="#{msg['email']}"
+										style=" font-size: 14px; font-family: sans-serif;" />
+									<p:inputText id="email" value="#{clientBean.client.email}"
+										required="false" label="email" size="60"
+										style=" font-size: 14px; font-family: sans-serif;">
+									</p:inputText>
+									<p:message for="email" display="icon" />
+	
+								</h:panelGrid>
+							</p:tab>
+	
+						</p:tabView>
+	
+						<br />
+						
+						<h:commandButton value="#{msg['btn_save']}"
+							style=" width:130px " alt="#{msg['btn_save']}"
+							action="#{clientBean.saveClient}" />
+
+						<p:spacer width="10" height="11" />
+						
+						<h:commandButton value="#{msg['btn_clean']}"
+							style=" width:130px " alt="#{msg['btn_clean']}"
+							action="#{clientBean.clean}" />
+	
+					</p:panel>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:decorate>
+
+</html>

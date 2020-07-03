@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:dx="http://dextra.com.br/dextra-taglib">
+
+	<ui:decorate template="template.xhtml">
+		<ui:define name="conteudo">
+	
+			<div class="pageTitleContainer">
+				<ui:insert name="pageIcon" />
+				<span class="pageTitleLabel"> <ui:insert name="pageTitle" />
+				</span>
+				<ui:insert name="ruler">
+					<!--   <hr class="pageTitleRuler" />  -->
+				</ui:insert>
+	
+				<h:form id="cadastro">
+	
+					<br />
+					<br />
+					<br />
+	
+					<p:panel id="panel" header="#{msg['cancel_employee']}"
+						styleClass="ocupada"
+						style="text-align:center ;color: #5459c9; font-size: 16px; ">
+
+						<!--  <p:growl id="msgs" showDetail="true" /> -->
+						<p:messages id="msgs" showDetail="true" autoUpdate="true" />
+						<p:panel id="basic" header="#{msg['data_employee']}"
+							styleClass="ocupada2"
+							style="text-align:center ;color: #5459c9; font-size: 14px;background-color:#99ccff;">
+	
+							<h:panelGrid columns="2" cellpadding="2"
+								style=" border-spacing:4px; border-collapse:separate;">
+								<h:outputLabel for="name" value="#{msg['name']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<h:outputLabel for="name"
+									value="#{employeeBean.employee.name}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+								<h:outputLabel for="identification" value="#{msg['identification']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<h:outputLabel for="identification"
+									value="#{employeeBean.employee.identification}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+								<h:outputLabel for="phone" value="#{msg['phone']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<h:outputLabel for="phone"
+									value="#{employeeBean.employee.phone}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+								<h:outputLabel for="email" value="#{msg['email']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<h:outputLabel for="email"
+									value="#{employeeBean.employee.email}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+							</h:panelGrid>
+							<br />
+							<h:panelGrid columns="3" cellpadding="2"
+								style=" border-spacing:4px; border-collapse:separate;">
+								<br />
+	
+								<h:outputLabel for="reason" value="#{msg['reason_for_cancellation']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+								<p:inputTextarea id="reason" rows="5" cols="30"
+									value="#{employeeBean.employee.reasonCancellation}"
+									counterTemplate="{0} characters remaining." autoResize="false"
+									label="#{msg['reason_for_cancellation']}" size="10"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<p:message for="reason" display="icon" />
+	
+							</h:panelGrid>
+						</p:panel>
+	
+						<br />
+	
+						<h:commandButton value="Back" image="image/voltar.png"
+							style=" width:130px " alt="Back"
+							action="#{employeeBean.back}" />
+	
+						<p:spacer width="10" height="11" />
+	
+						<h:commandButton value="Cancel" image="image/cancelar.png"
+							style=" width:145px " onmousedown="image/limpar.png"
+							alt="Cancel" action="#{employeeBean.cancel}" />
+	
+	
+					</p:panel>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:decorate>
+
+</html>

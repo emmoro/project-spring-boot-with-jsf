@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:dx="http://dextra.com.br/dextra-taglib">
+
+	<ui:decorate template="template.xhtml">
+		<ui:define name="conteudo">
+	
+			<div class="pageTitleContainer">
+				<ui:insert name="pageIcon" />
+				<span class="pageTitleLabel"> <ui:insert name="pageTitle" />
+				</span>
+				<ui:insert name="ruler">
+					<!--   <hr class="pageTitleRuler" />  -->
+				</ui:insert>
+	
+				<h:form id="cadastro">
+	
+					<br />
+					<br />
+					<br />
+	
+					<p:panel id="panel" header="#{msg['cancel_client']}" styleClass="ocupada"
+						style="text-align:center ;color: #000; font-size: 16px; font-family: sans-serif; ">
+	
+						<!--  <p:growl id="msgs" showDetail="true" /> -->
+						<p:messages id="msgs" showDetail="true" autoUpdate="true" />
+						<p:panel id="basic" header="#{msg['data_client']}"
+							style="text-align:center ;color: #000; 
+					 		font-size: 15px; background-color:#64d0f7; font-family: sans-serif;">
+	
+							<h:panelGrid columns="2" cellpadding="2"
+								style=" border-spacing:4px; border-collapse:separate;">
+								
+								<h:outputLabel for="name" value="#{msg['name']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<h:outputLabel for="name" value="#{clientBean.client.name}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+								<h:outputLabel for="identification" value="#{msg['identification']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<h:outputLabel for="identification" value="#{clientBean.client.identification}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+								<h:outputLabel for="phone" value="#{msg['phone']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<h:outputLabel for="telefone" value="#{clientBean.client.phone}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+							</h:panelGrid>
+							<br />
+							<h:panelGrid columns="3" cellpadding="2"
+								style=" border-spacing:4px; border-collapse:separate;">
+								<br />
+	
+								<h:outputLabel for="reason" value="#{msg['reason_for_cancellation']}"
+									style=" font-size: 14px; font-family: sans-serif;" />
+	
+								<p:inputTextarea id="motivo" rows="5" cols="30"
+									value="#{clientBean.client.reasonCancellation}"
+									counterTemplate="{0} characters remaining." autoResize="false"
+									label="Motivo" size="10"
+									style=" font-size: 14px; font-family: sans-serif;" />
+								<p:message for="reason" display="icon" />
+	
+							</h:panelGrid>
+						</p:panel>
+	
+						<br />
+	
+						<h:commandButton value="Save" image="image/voltar.png"
+							style=" width:130px " alt="Salvar" action="#{clientBean.back}" />
+	
+						<p:spacer width="10" height="11" />
+	
+						<h:commandButton value="Cancel" image="image/cancelar.png"
+							style=" width:145px " alt="Cancelar" action="#{clientBean.cancel}" />
+	
+					</p:panel>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:decorate>
+
+</html>
