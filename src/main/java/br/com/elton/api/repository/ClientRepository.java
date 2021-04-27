@@ -7,5 +7,5 @@ import br.com.elton.api.entity.Client;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Integer> {
-
+	
 }

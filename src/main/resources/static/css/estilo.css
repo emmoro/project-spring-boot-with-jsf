@@ -1,0 +1,139 @@
+*{margin: 0; padding: 0;}
+ 
+body{
+font-family: arial, helvetica, sans-serif;
+font-size: 14px;
+}
+ 
+.menu{
+list-style:none;
+/*border:1px solid #c0c0c0;*/
+float:left;
+width: 100%;
+height: 45px;
+color:#000;
+background-color: #000;
+color: #FFF;
+font-size: 18px;
+font-family: arial, helvetica, sans-serif;
+text-align: center;
+
+ font-weight: bold;
+}
+
+.menu li{
+position:relative;
+float:left;
+/* border-right:1px solid #c0c0c0;  */
+}
+
+.menu li img{
+list-style:none;
+float:right;
+color: #FFF;
+font-size: 16px;
+font-family: arial, helvetica, sans-serif;
+text-align: center;
+
+}
+
+.menu p{
+list-style:none;
+float:right;
+color: #FFF;
+font-size: 16px;
+font-family: arial, helvetica, sans-serif;
+text-align: center;
+padding:14px 10px; 
+
+}
+
+.menu p a{
+color: #FFF;
+}
+
+.menu p a:hover{
+color: blue;
+}
+
+
+.menu li a{
+text-decoration:none; 
+padding:14px 10px; 
+display:block;
+
+color: #FFF;
+font-family: arial, helvetica, sans-serif;
+text-align: center;
+ width: 100px;
+ height: 18px;
+}
+ 
+ 
+.menu li a:hover{
+/* background:#333;
+-moz-box-shadow:0 3px 10px 0 #CCC;
+-webkit-box-shadow:0 3px 10px 0 #ccc;
+text-shadow:0px 0px 5px #fff; */
+-moz-box-shadow:0 3px 58px 0 #CCC;
+-webkit-box-shadow:0 3px 58px 0 #ccc;
+ width: 100px;
+ color: blue;
+ 
+ 
+}
+
+.menu li  ul{
+position:absolute;
+top:34.5px;
+width: 100px;
+left:0;
+background-color:#000;
+display:none;
+margin: .6em 0em .6em 0em;
+ 
+}  
+
+.menu li:hover ul, .menu li.over ul{
+display:block;
+width:200px;
+border:1px solid #c0c0c0;
+
+}
+
+.menu li ul li{
+border:0.5px solid #c0c0c0;
+display:block;
+
+}
+
+.menu li ul li a{
+text-decoration:none; 
+padding:14px 10px; 
+display:block;
+width: 200px;
+color: #FFF;
+font-family: arial, helvetica, sans-serif;
+text-align: left;
+
+ height: 18px;
+}
+
+.menu li ul li a:hover{
+/* background:#333;
+-moz-box-shadow:0 3px 10px 0 #CCC;
+-webkit-box-shadow:0 3px 10px 0 #ccc;
+text-shadow:0px 0px 5px #fff; */
+-moz-box-shadow:0 3px 58px 0 #CCC;
+-webkit-box-shadow:0 3px 58px 0 #ccc;
+ width: 180px;
+ color: blue;
+ 
+}
+
+#rodape {
+	position: absolute;
+	bottom: 0;
+	background-color:#000;
+	width: 100%;
+	}

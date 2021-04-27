@@ -47,3 +47,22 @@ CREATE TABLE CLIENT (
  TITLE          VARCHAR(255) ,
  PRIMARY KEY (ID));
  
+ 
+CREATE TABLE USER (
+id int(11) auto_increment,
+active bit(1),
+date_create date,
+email varchar(255),
+password varchar(255),
+username varchar(255),
+id_role int(11));
+
+insert into user values (
+1 , "0", "2020-10-10", "teste@teste.com" , "$2a$10$6Xi8MIwBnup0S7L5zHY6pe0e6FL1LluL.nU70HZo4P6UHzx3iCZ4q" , "teste" , "1");
+senha = 123456
+
+CREATE TABLE user_role (
+id  int(11) auto_increment,
+role varchar(255));
+
+insert into user_role values (1, "ADMIN");

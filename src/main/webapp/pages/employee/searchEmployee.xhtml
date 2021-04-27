@@ -2,11 +2,10 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:dx="http://dextra.com.br/dextra-taglib">
 
-	<ui:decorate template="template.xhtml">
+	<ui:decorate template="../template.xhtml">
 		<ui:define name="conteudo">
 	
 			<div class="pageTitleContainer">
@@ -17,176 +16,158 @@
 					<!--   <hr class="pageTitleRuler" />  -->
 				</ui:insert>
 	
-				<h:form id="form2">
+				<h:form id="form">
+	
 					<br />
 					<br />
 					<br />
 	
-					<p:panel id="panel" header="#{msg['title_search_client']}" styleClass="ocupada"
+					<p:panel id="panel" header="#{msg['title_search_employee']}"
+						styleClass="ocupada"
 						style="text-align:center ;color: #000; font-size: 16px; font-family: sans-serif; ">
 	
 						<p:panel id="panel2" header="#{msg['filter']}" styleClass="ocupada2"
 							style="text-align:center ;color: #000; 
-					 		 font-size: 15px; background-color:#64d0f7; font-family: sans-serif;">
-					 		 
+					 	    font-size: 15px; background-color:#64d0f7; font-family: sans-serif;">
+							
 							<p:messages id="messages" />
 							
 							<h:panelGrid columns="2" cellpadding="2"
 								style=" border-spacing:4px; border-collapse:separate;">
 								<h:outputLabel for="name" value="#{msg['name']}"
 									style=" font-size: 14px; font-family: sans-serif;" />
-								<p:inputText id="name" size="25"
-									value="#{clientBean.clientFilter.name}"
+								<p:inputText id="nome" size="25"
+									value="#{employeeBean.employeeFilter.name}"
 									style=" font-size: 14px; font-family: sans-serif; padding:5px; " />
 	
 								<p:outputLabel for="identification" value="#{msg['identification']}"
 									style=" font-size: 14px; font-family: sans-serif;" />
 								<p:inputText id="identification" size="25"
-									value="#{clientBean.clientFilter.identification}"
+									value="#{employeeBean.employeeFilter.identification}"
 									style=" font-size: 14px; font-family: sans-serif;" />
 	
 								<p:outputLabel for="phone" value="#{msg['phone']}"
 									style=" font-size: 14px; font-family: sans-serif;" />
 								<p:inputText id="phone" size="25"
-									value="#{clientBean.clientFilter.phone}"
+									value="#{employeeBean.employeeFilter.phone}"
 									style=" font-size: 14px; font-family: sans-serif;" />
 	
 							</h:panelGrid>
+	
 						</p:panel>
+	
 						<br />
 						
 					   	<h:commandButton value="#{msg['btn_search']}"
 							style=" width:130px " alt="#{msg['btn_search']}"
-							action="#{clientBean.findClient}" />
-
+							action="#{employeeBean.searchEmployeeFilter}" />
+	
 						<br />
 						<br />
 	
-						<p:dataTable id="cli" var="client" value="#{clientBean.listClient}"
+						<p:dataTable id="emp" var="employee"
+							value="#{employeeBean.listEmployee}"
 							emptyMessage="#{msg['nothing_found']}" styleClass="tabela"
 							headerClass="cabecalho"
 							onRowMouseOver="this.style.backgroundColor='#F1F1F1'"
 							paginatorPosition="bottom"
-							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-							paginator="true" rows="10" rowKey="#{aluno.id}"
+							paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+							paginator="true" rows="10"
 							style="text-align:center ;color: #5459c9; font-size: 14px;background-color:#B0E0E6; font-family: sans-serif;">
 	
 							<f:facet name="header">
-	                 			#{msg['result']}
-	              		    </f:facet>
+	                 			 #{msg['result']}
+	               			</f:facet>
 	
-							<p:column headerText="#{msg['name']}" sortBy="#{client.name}"
+							<p:column headerText="#{msg['name']}" sortBy="#{employee.nome}"
 								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
 								filterStyle="max-width: 90px; min-width: 200px;">
 								<f:facet name="header">
 									<h:outputText value="#{msg['name']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+										style="text-align:center ;color: #000; font-size: 14px;" />
 								</f:facet>
-								<h:outputText value="#{client.name}"
+								<h:outputText value="#{employee.name}"
 									style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
 							</p:column>
 	
-							<p:column headerText="#{msg['identification']}" sortBy="#{client.identification}"
-								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+							<p:column headerText="#{msg['identification']}" sortBy="#{employee.identification}"
+								style="text-align:center ;color: #000; font-size: 14px;"
 								filterStyle="max-width: 90px; min-width: 200px;">
 								<f:facet name="header">
 									<h:outputText value="#{msg['identification']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+										style="text-align:center ;color: #000; font-size: 14px;" />
 								</f:facet>
-								<h:outputText value="#{client.identification}"
+								<h:outputText value="#{employee.identification}"
 									style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
 							</p:column>
 	
-							<p:column headerText="#{msg['phone']}" sortBy="#{client.phone}"
-								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+							<p:column headerText="#{msg['phone']}" sortBy="#{employee.phone}"
+								style="text-align:center ;color: #000; font-size: 14px;"
 								filterStyle="max-width: 90px; min-width: 200px;">
 								<f:facet name="header">
 									<h:outputText value="#{msg['phone']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+										style="text-align:center ;color: #000; font-size: 14px;" />
 								</f:facet>
-								<h:outputText value="#{client.phone}"
+								<h:outputText value="#{employee.phone}"
 									style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
 							</p:column>
-
-							<p:column>
-								<f:facet name="header">
-									<h:outputText value="#{msg['status']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
-								</f:facet>
 	
-	
-								<p:row rendered="#{client.status == 0}">
-									<h:outputText value="#{msg['active']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
-								</p:row>
-								<p:row rendered="#{client.status == 1}">
-									<h:outputText value="#{msg['canceled']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
-								</p:row>
-	
-							</p:column>
-	
-							<p:column
-								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+							<p:column style="text-align:center ;color: #000; font-size: 14px;"
 								filterStyle="max-width: 60px; min-width: 60px;">
 								<f:facet name="header">
 									<h:outputText value="#{msg['view']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+										style="text-align:center ;color: #000; font-size: 14px;" />
 								</f:facet>
 	
-								<h:commandButton ajax="false" label="#{msg['view']}"
-									action="#{clientBean.view}" image="ui-icon-search"
+								<p:commandButton ajax="false" label="#{msg['view']}"
+									action="#{employeeBean.view}" image="ui-icon-search"
 									style="width: 22px; height: 22px; align:center ;color: #000; font-size: 14px;"
 									styleClass="tabBotao">
-									<f:setPropertyActionListener value="#{client}"
-										target="#{clientBean.clientSelected}" />
-								</h:commandButton>
+									<f:setPropertyActionListener value="#{employee}"
+										target="#{employeeBean.employeeSelected}" />
+								</p:commandButton>
+	
 							</p:column>
 	
-							<p:column
-								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+							<p:column style="text-align:center ;color: #000; font-size: 14px;"
 								filterStyle="max-width: 60px; min-width: 60px;">
 								<f:facet name="header">
 									<h:outputText value="#{msg['change']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+										style="text-align:center ;color: #000; font-size: 14px;" />
 								</f:facet>
 	
 								<p:commandButton ajax="false" label="#{msg['change']}"
-									action="#{clientBean.change}" image="ui-icon-pencil"
+									action="#{employeeBean.change}" image="ui-icon-pencil"
 									style="width: 22px; height: 22px; align:center ;color: #000; font-size: 14px;"
 									styleClass="tabBotao">
-									<f:setPropertyActionListener value="#{client}"
-										target="#{clientBean.clientSelected}" />
+									<f:setPropertyActionListener value="#{employee}"
+										target="#{employeeBean.employeeSelected}" />
 								</p:commandButton>
 	
 							</p:column>
 	
-							<p:column
-								style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;"
+							<p:column style="text-align:center ;color: #000; font-size: 14px;"
 								filterStyle="max-width: 60px; min-width: 60px;">
 								<f:facet name="header">
 									<h:outputText value="#{msg['cancel']}"
-										style="text-align:center ;color: #000; font-size: 14px; font-family: sans-serif;" />
+										style="text-align:center ;color: #000; font-size: 14px;" />
 								</f:facet>
 	
 								<p:commandButton ajax="false" label="#{msg['cancel']}"
-									action="#{clientBean.viewCancel}"
-									actionListener="#{clientBean.viewCancel}"
+									action="#{employeeBean.viewCancel}"
 									image="ui-icon-closethick"
 									style="width: 22px; height: 22px; align:center ;color: #000; font-size: 14px;"
 									styleClass="tabBotao">
-									<f:setPropertyActionListener value="#{client}"
-										target="#{clientBean.clientSelected}" />
+									<f:setPropertyActionListener value="#{employee}"
+										target="#{employeeBean.employeeSelected}" />
 								</p:commandButton>
-
-							</p:column>
 	
+							</p:column>
 						</p:dataTable>
 	
 						<br />
 					</p:panel>
 				</h:form>
-	
 			</div>
 		</ui:define>
 	</ui:decorate>

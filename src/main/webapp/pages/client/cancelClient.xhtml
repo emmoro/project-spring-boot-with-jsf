@@ -5,7 +5,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:dx="http://dextra.com.br/dextra-taglib">
 
-	<ui:decorate template="template.xhtml">
+	<ui:decorate template="../template.xhtml">
 		<ui:define name="conteudo">
 	
 			<div class="pageTitleContainer">
@@ -22,40 +22,31 @@
 					<br />
 					<br />
 	
-					<p:panel id="panel" header="#{msg['cancel_employee']}"
-						styleClass="ocupada"
-						style="text-align:center ;color: #5459c9; font-size: 16px; ">
-
+					<p:panel id="panel" header="#{msg['cancel_client']}" styleClass="ocupada"
+						style="text-align:center ;color: #000; font-size: 16px; font-family: sans-serif; ">
+	
 						<!--  <p:growl id="msgs" showDetail="true" /> -->
 						<p:messages id="msgs" showDetail="true" autoUpdate="true" />
-						<p:panel id="basic" header="#{msg['data_employee']}"
-							styleClass="ocupada2"
-							style="text-align:center ;color: #5459c9; font-size: 14px;background-color:#99ccff;">
+						<p:panel id="basic" header="#{msg['data_client']}"
+							style="text-align:center ;color: #000; 
+					 		font-size: 15px; background-color:#64d0f7; font-family: sans-serif;">
 	
 							<h:panelGrid columns="2" cellpadding="2"
 								style=" border-spacing:4px; border-collapse:separate;">
+								
 								<h:outputLabel for="name" value="#{msg['name']}"
 									style=" font-size: 14px; font-family: sans-serif;" />
-								<h:outputLabel for="name"
-									value="#{employeeBean.employee.name}"
+								<h:outputLabel for="name" value="#{clientBean.client.name}"
 									style=" font-size: 14px; font-family: sans-serif;" />
 	
 								<h:outputLabel for="identification" value="#{msg['identification']}"
 									style=" font-size: 14px; font-family: sans-serif;" />
-								<h:outputLabel for="identification"
-									value="#{employeeBean.employee.identification}"
+								<h:outputLabel for="identification" value="#{clientBean.client.identification}"
 									style=" font-size: 14px; font-family: sans-serif;" />
 	
 								<h:outputLabel for="phone" value="#{msg['phone']}"
 									style=" font-size: 14px; font-family: sans-serif;" />
-								<h:outputLabel for="phone"
-									value="#{employeeBean.employee.phone}"
-									style=" font-size: 14px; font-family: sans-serif;" />
-	
-								<h:outputLabel for="email" value="#{msg['email']}"
-									style=" font-size: 14px; font-family: sans-serif;" />
-								<h:outputLabel for="email"
-									value="#{employeeBean.employee.email}"
+								<h:outputLabel for="telefone" value="#{clientBean.client.phone}"
 									style=" font-size: 14px; font-family: sans-serif;" />
 	
 							</h:panelGrid>
@@ -67,10 +58,10 @@
 								<h:outputLabel for="reason" value="#{msg['reason_for_cancellation']}"
 									style=" font-size: 14px; font-family: sans-serif;" />
 	
-								<p:inputTextarea id="reason" rows="5" cols="30"
-									value="#{employeeBean.employee.reasonCancellation}"
+								<p:inputTextarea id="motivo" rows="5" cols="30"
+									value="#{clientBean.client.reasonCancellation}"
 									counterTemplate="{0} characters remaining." autoResize="false"
-									label="#{msg['reason_for_cancellation']}" size="10"
+									label="Motivo" size="10"
 									style=" font-size: 14px; font-family: sans-serif;" />
 								<p:message for="reason" display="icon" />
 	
@@ -79,16 +70,13 @@
 	
 						<br />
 	
-						<h:commandButton value="Back" image="image/voltar.png"
-							style=" width:130px " alt="Back"
-							action="#{employeeBean.back}" />
+						<h:commandButton value="Save" image="image/voltar.png"
+							style=" width:130px " alt="Salvar" action="#{clientBean.back}" />
 	
 						<p:spacer width="10" height="11" />
 	
 						<h:commandButton value="Cancel" image="image/cancelar.png"
-							style=" width:145px " onmousedown="image/limpar.png"
-							alt="Cancel" action="#{employeeBean.cancel}" />
-	
+							style=" width:145px " alt="Cancelar" action="#{clientBean.cancel}" />
 	
 					</p:panel>
 				</h:form>

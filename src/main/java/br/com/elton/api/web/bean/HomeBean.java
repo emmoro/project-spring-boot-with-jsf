@@ -1,5 +1,6 @@
 package br.com.elton.api.web.bean;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.faces.context.FacesContext;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Component;
 
@@ -32,6 +35,17 @@ public class HomeBean {
 	@SuppressWarnings("rawtypes")
 	private DataModel reminders;
 	
+	public void initPage() throws IOException {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User) auth.getPrincipal();
+		String usuario = user.getUsername();
+		if (usuario.equals("teste")) {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("./pages/home/home.xhtml");
+		} else {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("../pages/client/clientRegister.xhtml");
+		}
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initReminder(ComponentSystemEvent event) {
 		listReminder = reminderService.findReminder();
@@ -43,11 +57,14 @@ public class HomeBean {
 		return "viewReminder.xhtml";
 	}
 	
-	public String logout() {
+	public void logout() throws IOException {
 		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-	    SecurityContextLogoutHandler ctxLogOut = new SecurityContextLogoutHandler();
-	    ctxLogOut.logout(request, null, null);
-	    return "login.xhtml";
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, null, auth);
+		}
+
+	    FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
 	}
 
 	public String getAtualiza() {
